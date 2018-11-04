@@ -53,7 +53,7 @@ The best acc is: 98.5417%
 
 The best acc is: 98.6154%
 
-### tabel
+### table
 
 |network|best train acc|best val acc|
 |--|--|--|
