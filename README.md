@@ -25,9 +25,45 @@ python test_se_densenet.py
 ```
  Of course, it will print ``torch.size(32, 1000)``
 
+## Test and result
+
+### densenet
+
+- train
+![](assets/densenet121_train_acc.png)
+![](assets/densenet121_train_loss.png)
+
+- val
+![](assets/densenet121_val_acc.png)
+![](assets/densenet121_val_loss.png)
+
+the best acc is: 98.5417%
+
+### se_densenet
+
+- train
+![](assets/se_densenet121_train_acc.png)
+![](assets/se_densenet121_train_loss.png)
+
+-val
+![](assets/se_densenet121_val_acc.png)
+![](assets/se_densenet121_val_loss.png)
+
+the best acc is: 98.6154%
+
+### tabel
+
+||best train acc|best val acc|
+|--|--|--|
+|densenet|0.966953|0.985417|
+|se_densenet|**0.967772**|**0.986154**|
+
+Se_densenet has got **0.0737%** higher accuracy than densenet. I don't train and test on public dataset like cifar and coco, because of low capacity of machine computation, you can train and test on cifar or coco dataset by yourself if you have the will.
+
 ## TODO
 
 I will update content and show my test result as quickly as possible.
 
 - [x] usage of my codes
-- [ ] test result
+- [x] test result on my own dataset
+- [ ] train and test public dataset, if I have enough time
