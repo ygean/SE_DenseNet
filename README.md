@@ -28,7 +28,7 @@ python test_se_densenet.py
 
 ## Test and result on my dataset
 
-### densenet
+### Densenet
 
 - train
 ![](assets/densenet121_train_acc.png)
@@ -40,7 +40,7 @@ python test_se_densenet.py
 
 The best acc is: 98.5417%
 
-### se_densenet
+### Se_densenet
 
 - train
 
@@ -54,7 +54,7 @@ The best acc is: 98.5417%
 
 The best acc is: 98.6154%
 
-### table
+### Table
 
 |network|best train acc|best val acc|
 |--|--|--|
@@ -63,11 +63,13 @@ The best acc is: 98.6154%
 
 Se_densenet has got **0.0737%** higher accuracy than densenet. I don't train and test on public dataset like cifar and coco, because of low capacity of machine computation, you can train and test on cifar or coco dataset by yourself if you have the will.
 
+## Update
+
 ## Test and result on Cifar dataset
 
-### densenet (baseline)
+### [Densenet](https://github.com/zhouyuangan/SE_DenseNet/blob/master/baseline.py) (baseline)
 
-- train
+- Train
 ![](assets/cifar_densenet121_train_acc.png)
 ![](assets/cifar_densenet121_train_loss.png)
 
@@ -77,9 +79,9 @@ Se_densenet has got **0.0737%** higher accuracy than densenet. I don't train and
 
 The best val acc is 0.9406 at epoch 98
 
-### se_densenet_w_block
+### Se_densenet_w_block
 
-In this part, I removed some selayers from densenet' ``transition`` layers, pls check se_densenet_w_block.py and you will find some commented code which point to selayers I have mentioned above.
+In this part, I removed some selayers from densenet' ``transition`` layers, pls check [se_densenet_w_block.py](https://github.com/zhouyuangan/SE_DenseNet/blob/master/se_densenet_w_block.py) and you will find some commented code which point to selayers I have mentioned above.
 
 - train
 
@@ -93,9 +95,9 @@ In this part, I removed some selayers from densenet' ``transition`` layers, pls 
 
 The best acc is 0.9381 at epoch 98.
 
-### se_densenet_full
+### Se_densenet_full
 
-Pls check se_densenet_full.py get more details, I add senet into both denseblock and transition, thanks for [@john1231983](https://github.com/John1231983)'s issue, I remove some redundant code in se_densenet_full.py, check this [issue](https://github.com/zhouyuangan/SE_DenseNet/issues/1) you will know what I say, here is train-val result on cifar-10:
+Pls check [se_densenet_full.py](https://github.com/zhouyuangan/SE_DenseNet/blob/master/se_densenet_full.py) get more details, I add senet into both denseblock and transition, thanks for [@john1231983](https://github.com/John1231983)'s issue, I remove some redundant code in se_densenet_full.py, check this [issue](https://github.com/zhouyuangan/SE_DenseNet/issues/1) you will know what I say, here is train-val result on cifar-10:
 
 - train
 
@@ -117,7 +119,7 @@ The best acc is 0.9407 at epoch 86.
 |``se_densenet_w_block``|0.9381|98|
 |``se_densenet_full``|**0.9407**|**86**|
 
-### conclusion
+### Conclusion
 
 According to my test result, se_densenet_full performs best actually, se_densenet_full gets ``0.9407`` accuracy higher than others', and it cost less time to get best accuracy at ``86`` epoch, in the contrast, both ``densenet`` and ``se_densenet_w_block`` get their own higher accuracy are ``98`` epoach.
 
