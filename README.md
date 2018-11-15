@@ -1,6 +1,7 @@
 # SE_DenseNet
 
 ## Introduction
+
 ![](assets/03.jpeg)
 This is a DensNet  which contains a [SE](https://arxiv.org/abs/1709.01507) (Squeeze-and-Excitation Networks by Jie Hu, Li Shen and Gang Sun) module.
 
@@ -25,7 +26,7 @@ python test_se_densenet.py
 ```
  Of course, it will print ``torch.size(32, 1000)``
 
-## Test and result
+## Test and result on my dataset
 
 ### densenet
 
@@ -62,10 +63,69 @@ The best acc is: 98.6154%
 
 Se_densenet has got **0.0737%** higher accuracy than densenet. I don't train and test on public dataset like cifar and coco, because of low capacity of machine computation, you can train and test on cifar or coco dataset by yourself if you have the will.
 
+## Test and result on Cifar dataset
+
+### densenet (baseline)
+
+- train
+![](assets/cifar_densenet121_train_acc.png)
+![](assets/cifar_densenet121_train_loss.png)
+
+- val
+![](assets/cifar_densenet121_val_acc.png)
+![](assets/cifar_densenet121_val_loss.png)
+
+The best val acc is 0.9406 at epoch 98
+
+### se_densenet_w_block
+
+In this part, I removed some selayers from densenet' ``transition`` layers, pls check se_densenet_w_block.py and you will find some commented code which point to selayers I have mentioned above.
+
+- train
+
+![](assets/cifar_se_densenet121_w_block_train_acc.png)
+![](assets/cifar_se_densenet121_w_block_train_loss.png)
+
+- val
+
+![](assets/cifar_se_densenet121_w_block_val_acc.png)
+![](assets/cifar_se_densenet121_w_block_val_loss.png)
+
+The best acc is 0.9381 at epoch 98.
+
+### se_densenet_full
+
+Pls check se_densenet_full.py get more details, I add senet into both denseblock and transition, thanks for [@john1231983](https://github.com/John1231983)'s issue, I remove some redundant code in se_densenet_full.py, check this [issue](https://github.com/zhouyuangan/SE_DenseNet/issues/1) you will know what I say, here is train-val result on cifar-10:
+
+- train
+
+![](assets/cifar_se_densenet121_full_train_acc.png)
+![](assets/cifar_se_densenet121_full_train_loss.png)
+
+- val
+
+![](assets/cifar_se_densenet121_full_val_acc.png)
+![](assets/cifar_se_densenet121_full_val_loss.png)
+
+The best acc is 0.9407 at epoch 86.
+
+### table
+
+|network|best val acc|epoch|
+|--|--|--|
+|``densenet``|0.9406|98|
+|``se_densenet_w_block``|0.9381|98|
+|``se_densenet_full``|**0.9407**|**86**|
+
+### conclusion
+
+According to my test result, se_densenet_full performs best actually, se_densenet_full gets ``0.9407`` accuracy higher than others', and it cost less time to get best accuracy at ``86`` epoch, in the contrast, both ``densenet`` and ``se_densenet_w_block`` get their own higher accuracy are ``98`` epoach.
+
 ## TODO
 
-I will update content and show my test result as quickly as possible.
+I will release my train code on github as quickly as possible.
 
-- [x] usage of my codes
-- [x] test result on my own dataset
-- [ ] train and test public dataset, if I have enough time
+- [x] Usage of my codes
+- [x] Test result on my own dataset
+- [x] Train and test on ``cifar-10`` dataset
+- [ ] Release train and test code
