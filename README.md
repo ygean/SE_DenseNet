@@ -9,7 +9,7 @@ The backbone is densenet, I just add senet into densenet as pic shows, but it's 
 
 ![](assets/02.png)
 
- Click my **[blog](http://www.zhouyuangan.cn/2018/11/se_densenet-modify-densenet-with-champion-network-of-the-2017-classification-task-named-squeeze-and-excitation-network/)**  if you want to kown more edited se_densenet details.
+ Click my **[blog](http://www.zhouyuangan.cn/2018/11/se_densenet-modify-densenet-with-champion-network-of-the-2017-classification-task-named-squeeze-and-excitation-network/)**  if you want to know more edited se_densenet details.
 
 ## Usage
 
