@@ -5,13 +5,13 @@
 ![](assets/03.jpeg)
 This is a DensNet  which contains a [SE](https://arxiv.org/abs/1709.01507) (Squeeze-and-Excitation Networks by Jie Hu, Li Shen and Gang Sun) module.
 
-The backbone is densenet, I just add senet into densenet as pic shows, but it's not whole stucture of se_densenet.(http://www.zhouyuangan.cn/2018/11/se_densenet-modify-densenet-with-champion-network-of-the-2017-classification-task-named-squeeze-and-excitation-network/)** you will get more details on se_densenet, and then I will test se-densenet on my own classification task and dataset compares with performance of densenet.
+Densenet as backbone, I just add senet module into densenet as pic shows below, but it's not the whole structure of se_densenet. 
 
 ![](assets/02.png)
 
  Click my **[blog](http://www.zhouyuangan.cn/2018/11/se_densenet-modify-densenet-with-champion-network-of-the-2017-classification-task-named-squeeze-and-excitation-network/)**  if you want to know more edited se_densenet details.
 
- > Chinese blog is at [here](https://zhuanlan.zhihu.com/p/48499356)
+ And Chinese bersion blog is at [here](https://zhuanlan.zhihu.com/p/48499356)
 
 ## Usage
 
@@ -60,10 +60,10 @@ The best acc is: 98.6154%
 
 |network|best train acc|best val acc|
 |--|--|--|
-|densenet|0.966953|0.985417|
-|se_densenet|**0.967772**|**0.986154**|
+|``densenet``|0.966953|0.985417|
+|``se_densenet``|**0.967772**|**0.986154**|
 
-Se_densenet has got **0.0737%** higher accuracy than densenet. I don't train and test on public dataset like cifar and coco, because of low capacity of machine computation, you can train and test on cifar or coco dataset by yourself if you have the will.
+``Se_densenet`` has got **0.0737%** higher accuracy than ``densenet``. I didn't train and test on public dataset like cifar and coco, because of low capacity of machine computation, you can train and test on cifar or coco dataset by yourself if you have the will.
 
 ## Update
 
@@ -115,7 +115,7 @@ The best acc is 0.9407 at epoch 86.
 
 ### se_densenet_full_in_loop
 
-Pls check se_densenet_full_in_loop.py get more details, and this [issue](https://github.com/zhouyuangan/SE_DenseNet/issues/1#issuecomment-438891133) illustrate what I have changed, here is train-val result on cifar-10:
+Pls check (se_densenet_full_in_loop.py)[https://github.com/zhouyuangan/SE_DenseNet/blob/master/se_densenet_full_in_loop.py] get more details, and this [issue](https://github.com/zhouyuangan/SE_DenseNet/issues/1#issuecomment-438891133) illustrate what I have changed, here is train-val result on cifar-10:
 
 - train
 
