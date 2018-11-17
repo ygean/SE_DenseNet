@@ -5,11 +5,13 @@
 ![](assets/03.jpeg)
 This is a DensNet  which contains a [SE](https://arxiv.org/abs/1709.01507) (Squeeze-and-Excitation Networks by Jie Hu, Li Shen and Gang Sun) module.
 
-The backbone is densenet, I just add senet into densenet as pic shows, but it's not whole stucture of se_densenet, please check **[blog](http://www.zhouyuangan.cn/2018/11/se_densenet-modify-densenet-with-champion-network-of-the-2017-classification-task-named-squeeze-and-excitation-network/)** you will get more details on se_densenet, and then I will test se-densenet on my own classification task and dataset compares with performance of densenet.
+The backbone is densenet, I just add senet into densenet as pic shows, but it's not whole stucture of se_densenet.(http://www.zhouyuangan.cn/2018/11/se_densenet-modify-densenet-with-champion-network-of-the-2017-classification-task-named-squeeze-and-excitation-network/)** you will get more details on se_densenet, and then I will test se-densenet on my own classification task and dataset compares with performance of densenet.
 
 ![](assets/02.png)
 
  Click my **[blog](http://www.zhouyuangan.cn/2018/11/se_densenet-modify-densenet-with-champion-network-of-the-2017-classification-task-named-squeeze-and-excitation-network/)**  if you want to kown more edited se_densenet details.
+
+ > Chinese blog is at [here](https://zhuanlan.zhihu.com/p/48499356)
 
 ## Usage
 
@@ -109,17 +111,34 @@ Pls check se_densenet_full.py get more details, I add senet into both denseblock
 
 The best acc is 0.9407 at epoch 86.
 
+### se_densenet_full_in_loop
+
+Pls check se_densenet_full_in_loop.py get more details, and this [issue](https://github.com/zhouyuangan/SE_DenseNet/issues/1#issuecomment-438891133) illustrate what I have changed, here is train-val result on cifar-10:
+
+- train
+
+![](assets/cifar_se_densenet121_full_in_loop_train_acc.png)
+![](assets/cifar_se_densenet121_full_in_loop_train_loss.png)
+
+- val
+
+![](assets/cifar_se_densenet121_full_in_loop_val_acc.png)
+![](assets/cifar_se_densenet121_full_in_loop_val_loss.png)
+
+The best acc is 0.9434 at epoch 97.
+
 ### table
 
 |network|best val acc|epoch|
 |--|--|--|
 |``densenet``|0.9406|98|
 |``se_densenet_w_block``|0.9381|98|
-|``se_densenet_full``|**0.9407**|**86**|
+|``se_densenet_full``|0.9407|**86**|
+|``se_densenet_full_in_loop``|**0.9434**|97|
 
-### conclusion
+### Conclusion
 
-According to my test result, se_densenet_full performs best actually, se_densenet_full gets ``0.9407`` accuracy higher than others', and it cost less time to get best accuracy at ``86`` epoch, in the contrast, both ``densenet`` and ``se_densenet_w_block`` get their own higher accuracy are ``98`` epoach.
+According to my test result, ``se_densenet_full_in_loop`` performs the best accuracy, and ``se_densenet_full`` performs the best because of less epoch at 86, ``se_densenet_full`` gets ``0.9407`` accuracy higher than others' but except ``se_densenet_full_in_loop``,``se_densenet_full_in_loop`` gets the best,  and it costs less time to get the best accuracy at ``86`` epoch. In the contrast, both ``densenet`` and ``se_densenet_w_block`` get their own the highest accuracy are ``98`` epoch.
 
 ## TODO
 
