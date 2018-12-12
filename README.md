@@ -118,7 +118,7 @@ The best acc is 0.9407 at epoch 86.
 
 ### se_densenet_full_in_loop
 
-Pls check (se_densenet_full_in_loop.py)[https://github.com/zhouyuangan/SE_DenseNet/blob/master/se_densenet_full_in_loop.py] get more details, and this [issue](https://github.com/zhouyuangan/SE_DenseNet/issues/1#issuecomment-438891133) illustrate what I have changed, here is train-val result on cifar-10:
+Pls check [se_densenet_full_in_loop.py](https://github.com/zhouyuangan/SE_DenseNet/blob/master/se_densenet_full_in_loop.py) get more details, and this [issue](https://github.com/zhouyuangan/SE_DenseNet/issues/1#issuecomment-438891133) illustrate what I have changed, here is train-val result on cifar-10:
 
 - train
 
