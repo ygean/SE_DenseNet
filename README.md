@@ -28,6 +28,9 @@ python test_se_densenet.py
 ```
  Of course, it will print ``torch.size(32, 1000)``
 
+## Train code had been released(updated!)
+If you want to try another structure, I think this training code will help you. Please check [here](https://github.com/zhouyuangan/mixed-senet-densenet) for more details
+
 ## Test and result on my dataset
 
 ### Densenet
@@ -149,4 +152,4 @@ I will release my train code on github as quickly as possible.
 - [x] Usage of my codes
 - [x] Test result on my own dataset
 - [x] Train and test on ``cifar-10`` dataset
-- [ ] Release train and test code
+- [x] Release train and test code, [repository](https://github.com/zhouyuangan/mixed-senet-densenet)
