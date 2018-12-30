@@ -11,7 +11,7 @@ Densenet as backbone, I just add senet module into densenet as pic shows below, 
 
  Click my **[blog](http://www.zhouyuangan.cn/2018/11/se_densenet-modify-densenet-with-champion-network-of-the-2017-classification-task-named-squeeze-and-excitation-network/)**  if you want to know more edited se_densenet details.
 
- And Chinese bersion blog is at [here](https://zhuanlan.zhihu.com/p/48499356)
+ And Chinese version blog is at [here](https://zhuanlan.zhihu.com/p/48499356)
 
 ## Usage
 
