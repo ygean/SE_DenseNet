@@ -169,7 +169,6 @@ Note: please change your state file path in /visual/viz.py.
 
 ### Conclusion
 
-According to my test result:
 - ``se_densenet_full_in_loop`` gets **the best accuracy** at epoch 97.
 -  ``se_densenet_full`` performs well because of less epoch at 86,and it gets ``0.9407`` the second accuracy.
 - In the contrast, both ``densenet`` and ``se_densenet_w_block`` get their own the highest accuracy are ``98`` epoch.
