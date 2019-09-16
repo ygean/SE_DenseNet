@@ -1,4 +1,4 @@
-"""添加了senet模块,loop方式添加senet，不在transition和denselayer中加入senet"""
+"""添加了senet模块,去除transition的senet模块,仅仅在denseblock中添加senet模块"""
 import sys
 sys.path.append("F:/car_classify_abnormal")
 
@@ -8,7 +8,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.utils.model_zoo as model_zoo
 from collections import OrderedDict
-from se_module import SELayer
+from core.se_module import SELayer
 
 
 __all__ = ['SEDenseNet', 'se_densenet121', 'se_densenet169', 'se_densenet201', 'se_densenet161']
@@ -134,7 +134,7 @@ class _DenseLayer(nn.Sequential):
     def __init__(self, num_input_features, growth_rate, bn_size, drop_rate):
         super(_DenseLayer, self).__init__()
         # Add SELayer at here, like SE-PRE block in original paper illustrates
-        # self.add_module("selayer", SELayer(channel=num_input_features)),
+        self.add_module("selayer", SELayer(channel=num_input_features)),
 
         self.add_module('norm1', nn.BatchNorm2d(num_input_features)),
         self.add_module('relu1', nn.ReLU(inplace=True)),
@@ -164,7 +164,6 @@ class _DenseBlock(nn.Sequential):
 class _Transition(nn.Sequential):
     def __init__(self, num_input_features, num_output_features):
         super(_Transition, self).__init__()
-        # self.add_module("selayer", SELayer(channel=num_input_features))
         self.add_module('norm', nn.BatchNorm2d(num_input_features))
         self.add_module('relu', nn.ReLU(inplace=True))
         self.add_module('conv', nn.Conv2d(num_input_features, num_output_features,
@@ -206,7 +205,7 @@ class SEDenseNet(nn.Module):
         num_features = num_init_features
         for i, num_layers in enumerate(block_config):
             # Add a SELayer 
-            self.features.add_module("SELayer_%da" % (i + 1), SELayer(channel=num_features))
+            # self.features.add_module("SELayer_%da" % (i + 1), SELayer(channel=num_features))
 
             block = _DenseBlock(num_layers=num_layers, num_input_features=num_features,
                                 bn_size=bn_size, growth_rate=growth_rate, drop_rate=drop_rate)
@@ -216,7 +215,7 @@ class SEDenseNet(nn.Module):
 
             if i != len(block_config) - 1:
                 # Add a SELayer behind each transition block
-                self.features.add_module("SELayer_%db" % (i + 1), SELayer(channel=num_features))
+                # self.features.add_module("SELayer_%db" % (i + 1), SELayer(channel=num_features))
 
                 trans = _Transition(num_input_features=num_features, num_output_features=num_features // 2)
                 self.features.add_module('transition%d' % (i + 1), trans)
@@ -249,7 +248,6 @@ class SEDenseNet(nn.Module):
         return out
 
 
-
 def test_se_densenet(pretrained=False):
     X = torch.Tensor(32, 3, 224, 224)
 
@@ -269,7 +267,6 @@ def test_se_densenet(pretrained=False):
     with torch.no_grad():
         output = model(X)
         print(output.shape)
-
 
 if __name__ == "__main__":
     test_se_densenet()
