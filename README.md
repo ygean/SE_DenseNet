@@ -68,7 +68,7 @@ The best acc is 0.9381 at epoch 98.
 
 Pls check [se_densenet_full.py](https://github.com/zhouyuangan/SE_DenseNet/blob/master/se_densenet_full.py) get more details, I add senet into both denseblock and transition, thanks for [@john1231983](https://github.com/John1231983)'s issue, I remove some redundant code in se_densenet_full.py, check this [issue](https://github.com/zhouyuangan/SE_DenseNet/issues/1) you will know what I say, here is train-val result on cifar-10:
 
--train
+- train
 
 ![](assets/cifar_se_densenet121_full_train_acc.png)
 ![](assets/cifar_se_densenet121_full_train_loss.png)
